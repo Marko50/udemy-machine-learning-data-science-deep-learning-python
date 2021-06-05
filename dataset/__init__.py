@@ -1,7 +1,9 @@
-from .dataset import X, y, dataframe
+from .dataset import X_train, y_train, X_test, y_test
 
 __all__ = [
-    'X',
-    'y',
+    'X_train',
+    'y_train',
+    'X_test',
+    'y_test',
     'dataframe'
 ]
