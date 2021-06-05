@@ -11,9 +11,12 @@ dataframe = read_csv('mammographic_masses.data.txt', names=names)
 # we replace the values marked as '?' which are unknown as numpy NaN values
 dataframe = dataframe.replace('?', NaN)
 # we drop the first column which is irrelevant
-dataframe.drop(labels=[drop_col], axis=1)
+dataframe = dataframe.drop(labels=[drop_col], axis=1)
 # let's drop the Nan values
 dataframe = dataframe.dropna()
+
+for ftr in features:
+    dataframe[ftr] = dataframe[ftr].astype(int)
 
 X = dataframe[features]
 y = dataframe[target_col]
