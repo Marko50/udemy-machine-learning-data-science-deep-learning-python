@@ -16,9 +16,15 @@ def df_to_ds(x, y, shuffle=True, batch_size=32):
 
 def neural_network():
     age_col = feature_column.numeric_column('Age')
-    shape_col = feature_column.indicator_column(feature_column.categorical_column_with_vocabulary_list('Shape', dataframe['Shape'].unique()))
-    margin_col = feature_column.indicator_column(feature_column.categorical_column_with_vocabulary_list('Margin', dataframe['Margin'].unique()))
-    density_col = feature_column.indicator_column(feature_column.categorical_column_with_vocabulary_list('Density', dataframe['Density'].unique()))
+    shape_col = feature_column.indicator_column(
+        feature_column.categorical_column_with_vocabulary_list(
+            'Shape', dataframe['Shape'].unique()))
+    margin_col = feature_column.indicator_column(
+        feature_column.categorical_column_with_vocabulary_list(
+            'Margin', dataframe['Margin'].unique()))
+    density_col = feature_column.indicator_column(
+        feature_column.categorical_column_with_vocabulary_list(
+            'Density', dataframe['Density'].unique()))
     feature_cols = [age_col, shape_col, margin_col, density_col]
     feature_layer = DenseFeatures(feature_cols)
 
